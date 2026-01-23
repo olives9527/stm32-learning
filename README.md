@@ -78,7 +78,13 @@ GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 GPIO_Init(GPIOC, &GPIO_InitStructure);
 
 GPIO_SetBits(GPIOC, GPIO_Pin_13);
-// GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+ GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+
+Side note:
+Today I also learned that GitHub Desktop was already running in the background.
+Sometimes software doesn't open a new window because it is already open.
+This reminded me that understanding "state" matters, not just actions.
+
 
 
 
