@@ -43,8 +43,43 @@ but I **built a clear mental model**, which feels very meaningful.
 
 ## My Plan
 
+
+
 - Learn STM32 step by step
 - Focus on understanding, not memorizing
 - Record my learning process honestly
 
 This is just the beginning.
+
+
+
+# Day 2 – Understanding GPIO Configuration
+
+Today I learned how to configure a GPIO pin step by step.
+
+I used the Standard Peripheral Library (not HAL yet).
+The key things I learned are:
+
+- The GPIO peripheral must be enabled by RCC before use
+- GPIO configuration is done using a structure
+- The configuration is written into hardware registers
+- Setting or resetting a pin directly changes the LED state
+
+Here is the code I studied today:
+
+```c
+RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
+
+GPIO_InitTypeDef GPIO_InitStructure;
+GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
+GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+
+GPIO_Init(GPIOC, &GPIO_InitStructure);
+
+GPIO_SetBits(GPIOC, GPIO_Pin_13);
+// GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+
+
+
+
